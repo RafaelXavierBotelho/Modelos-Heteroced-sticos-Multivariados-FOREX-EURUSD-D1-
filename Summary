@@ -1,4 +1,31 @@
-Advanced Bayesian Quantitative Framework for Financial Forecasting & Microstructure Execution📌 OverviewThis repository implements a hybrid Bayesian State-Space & Stochastic Volatility (SV) Framework designed to model complex, heteroscedastic, and time-varying dynamics in high-frequency/daily financial price series (specifically EUR/USD).By synthesizing Hamiltonian Monte Carlo (HMC) inference via Stan, Non-Linear State Transitions (UKF / GRU / LSTM), and an Institutional Smart Money Concepts (SMC) & Price Action decision layer, this project bridges the gap between macroeconomic stochastic modeling and order-flow microstructure execution.⚡ Key Architectural Features1. Bayesian Stochastic Volatility & Latent State DynamicsMarkov-Switching Regimes (HMM): Alternates between trending and choppy/scalping market regimes, dynamically modulating momentum persistence, liquidity sensitivity, and mean-reversion parameters.Non-Linear OU Restoration Force: Implements a state-dependent Ornstein-Uhlenbeck (OU) mean-reversion process that pulls price toward an adaptive EMA attractor during range-bound regimes, while remaining inactive during structural trends.Hybrid Volatility Component: Combines HAR-type volatility structures, GJR-GARCH innovations, macroeconomic news event dynamics, and jump-diffusion mechanisms to model heteroscedasticity and tail risk.Deep Sequential Memory: Injects non-linear temporal memory using Quasi-Momentum LSTM and Bidirectional GRU architectures into the state-transition function.2. Tiered Decision Layer (SMC & Microstructure Signal Hierarchy)Rather than relying purely on unconstrained statistical forecasts, predictive Student-$t$ distributions are mapped into a tiered, rule-governed signal hierarchy:Tier 1 (Deterministic Priority Triggers): High-conviction institutional events—such as Liquidity Sweeps, Multi-Touch Big Figure Exhaustion Counts ($\ge 3$ tests), and Order Block Mitigations with Volume Displacement—override baseline forecasts to enforce sharp directional entries.Tier 2 (Continuous Logit Integration): In the absence of Tier 1 triggers, the model falls back to a continuous decision layer that blends Order-Flow proxy metrics (CVD & RSI Confluences) with a quantitative Price Action Scoring System (Fair Value Gaps, Structural Breakers, Doji Geometries).[ MCMC / HMC Posterior Sampling ]
+Advanced Bayesian Quantitative Framework for Financial Forecasting & Microstructure Execution 
+
+OverviewThis repository implements a hybrid Bayesian State-Space & Stochastic Volatility (SV) Framework designed to model complex, heteroscedastic, 
+and time-varying dynamics in high-frequency/daily financial price series (specifically EUR/USD).By synthesizing Hamiltonian Monte Carlo (HMC) inference via Stan,
+Non-Linear State Transitions (UKF / GRU / LSTM), and an Institutional Smart Money Concepts (SMC) & Price Action decision layer, this project bridges the gap 
+between macroeconomic stochastic modeling and order-flow microstructure execution.Key Architectural
+
+Features1. Bayesian Stochastic Volatility & Latent State
+DynamicsMarkov-Switching Regimes (HMM):
+
+      Alternates between trending and choppy/scalping market regimes, dynamically modulating momentum persistence, liquidity 
+      sensitivity, and mean-reversion parameters.Non-Linear OU Restoration Force: Implements a state-dependent Ornstein-Uhlenbeck (OU) mean-reversion process that 
+      pulls price toward an adaptive EMA attractor during range-bound regimes, while remaining inactive during structural trends.Hybrid Volatility Component:
+
+      Combines HAR-type volatility structures, GJR-GARCH innovations, macroeconomic news event dynamics, and jump-diffusion mechanisms to model heteroscedasticity 
+      and tail risk.Deep Sequential Memory: Injects non-linear temporal memory using Quasi-Momentum LSTM and Bidirectional GRU architectures into the state-transition
+      function.
+
+Tiered Decision Layer (SMC & Microstructure Signal Hierarchy)Rather than relying purely on unconstrained statistical forecasts, predictive 
+Student-t distributions are mapped into a tiered, rule-governed signal hierarchy:Tier 1 (Deterministic Priority Triggers): 
+
+    High-conviction institutional events—such as Liquidity Sweeps, Multi-Touch Big Figure Exhaustion Counts (3 tests), and Order Block Mitigations with 
+    Volume Displacement—override baseline forecasts to enforce sharp directional entries.
+
+Tier 2 (Continuous Logit Integration): 
+
+   In the absence of Tier 1 triggers, the model falls back to a continuous decision layer that blends Order-Flow proxy metrics (CVD & RSI Confluences) 
+  with a quantitative Price Action Scoring System (Fair Value Gaps, Structural Breakers, Doji Geometries).[ MCMC / HMC Posterior Sampling ]
                                                 │
                                  [ SMC & Microstructure Parser ]
                                                 │
@@ -16,7 +43,9 @@ Advanced Bayesian Quantitative Framework for Financial Forecasting & Microstruct
                  └──────────────────────────────┬───────────────────────────────┘
                                                 │
                                      [ Unified Directional ]
-                                     [  Target & Risk (SL) ] # ========================================================================================= #
+                                     [  Target & Risk (SL) ] 
+
+# ========================================================================================= #
 #                                                                                           #
 #  * Past profitability doesn't correspond to future ones.                                  #
 #  * All estimations made in this project are only for educational purposes!                #
