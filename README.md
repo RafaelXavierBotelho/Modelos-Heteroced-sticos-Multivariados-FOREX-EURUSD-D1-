@@ -1,0 +1,2 @@
+# Modelos-Heteroced-sticos-Multivariados-FOREX-EURUSD-D1-
+Bayesian quantitative framework in Stan/Python for EUR/USD. Combines Stochastic Volatility, HMM, LSTM, and a tiered Price Action/SMC decision hierarchy (Liquidity Sweeps, Big Figures, and Order Blocks) for forecasting and risk management. Educational purposes only. Past profits do not guarantee future returns. No responsibility for gains or losses.
