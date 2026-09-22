@@ -3,10 +3,9 @@ Advanced Bayesian Quantitative Framework for Financial Forecasting & Microstruct
 OverviewThis repository implements a hybrid Bayesian State-Space & Stochastic Volatility (SV) Framework designed to model complex, heteroscedastic, 
 and time-varying dynamics in high-frequency/daily financial price series (specifically EUR/USD).By synthesizing Hamiltonian Monte Carlo (HMC) inference via Stan,
 Non-Linear State Transitions (UKF / GRU / LSTM), and an Institutional Smart Money Concepts (SMC) & Price Action decision layer, this project bridges the gap 
-between macroeconomic stochastic modeling and order-flow microstructure execution.Key Architectural
+between macroeconomic stochastic modeling and order-flow microstructure execution.
 
-Features1. Bayesian Stochastic Volatility & Latent State
-DynamicsMarkov-Switching Regimes (HMM):
+Key Architectural Features: Bayesian Stochastic Volatility & Latent State Dynamics Markov-Switching Regimes (HMM).
 
       Alternates between trending and choppy/scalping market regimes, dynamically modulating momentum persistence, liquidity 
       sensitivity, and mean-reversion parameters.Non-Linear OU Restoration Force: Implements a state-dependent Ornstein-Uhlenbeck (OU) mean-reversion process that 
@@ -17,7 +16,9 @@ DynamicsMarkov-Switching Regimes (HMM):
       function.
 
 Tiered Decision Layer (SMC & Microstructure Signal Hierarchy)Rather than relying purely on unconstrained statistical forecasts, predictive 
-Student-t distributions are mapped into a tiered, rule-governed signal hierarchy:Tier 1 (Deterministic Priority Triggers): 
+Student-t distributions are mapped into a tiered, rule-governed signal hierarchy:
+
+Tier 1 (Deterministic Priority Triggers): 
 
     High-conviction institutional events—such as Liquidity Sweeps, Multi-Touch Big Figure Exhaustion Counts (3 tests), and Order Block Mitigations with 
     Volume Displacement—override baseline forecasts to enforce sharp directional entries.
