@@ -1388,7 +1388,7 @@ print(f"Slab SD (σ_slab):            {sigma_slab:.6f}")
 
 jump_probability = 0.0347
 
-#  "Events exceeding 0.008497%(u) are relatively rare (~3.47% after declustering), 
+#  "Events exceeding 0.8497% ( u = 0.008497) are relatively rare (~3.47% after declustering), 
 #   and the estimated tail is bounded, with an endpoint at approximately 3.8387%."
 
 # ==============================================================================
