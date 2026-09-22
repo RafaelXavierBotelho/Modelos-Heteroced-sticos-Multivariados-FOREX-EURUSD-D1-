@@ -16,7 +16,7 @@ Key Architectural Features: Bayesian Stochastic Volatility & Latent State Dynami
       function.
 
 Tiered Decision Layer (SMC & Microstructure Signal Hierarchy)Rather than relying purely on unconstrained statistical forecasts, predictive 
-Student-t distributions are mapped into a tiered, rule-governed signal hierarchy:
+t-Student distributions are mapped into a tiered, rule-governed signal hierarchy:
 
 Tier 1 (Deterministic Priority Triggers): 
 
